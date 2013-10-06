@@ -1,0 +1,32 @@
+---
+layout: default
+---
+<div class="jumbotron">
+    <div class="container">
+        <%- @content %>
+    </div>
+</div>
+
+<div class="container transparent" id="item-list">
+    <div class="row">
+        <% for item in @getCollection('items').toJSON(): %>
+        <div class="col-sm-6 col-md-3">
+            <a class="thumbnail <%= if item.sold then '' else 'available' %>" href="<%= item.url %>">
+                <div class="item-image">
+                    <% if item.sold: %>
+                    <div class="sold">SOLD</div>
+                    <% else: %>
+                    <div class="price" data-price="<%= item.price %>"></div>
+                    <% end %>
+
+                    <img src="<%= item.images?[0] %>"/>
+                </div>
+
+                <div class="caption">
+                    <%= item.title %>
+                </div>
+            </a>
+        </div>
+        <% end %>
+    </div>
+</div>

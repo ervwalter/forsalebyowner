@@ -1,0 +1,317 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700|Shadows+Into+Light+Two);
+@import url(http://fonts.googleapis.com/css?family=Open%20Sans&effect=fire|fire-animation);
+@import "../../files/styles/bootstrap/bootstrap.less";
+
+@sans-serif: 'Open Sans', sans-serif;
+@handwriting: 'Shadows Into Light Two', cursive;
+
+//
+// site specific css
+//
+body {
+  background-color: #e1ceb7;
+  background-image: url(/images/textured_stripes.gif);
+  padding-bottom: 40px;
+  overflow-y: scroll;
+}
+
+.transparent {
+  opacity: 0;
+}
+
+.breadcrumb, .jumbotron {
+  background-color: #50483e;
+  background-image: url(/images/textured_stripes_dark.gif);
+  color: #ddd;
+  margin-bottom: 20px;
+}
+
+.breadcrumb {
+  margin-top: 20px;
+
+  a {
+    color: #fff;
+  }
+
+  .active {
+    color: #a0a0a0;
+  }
+}
+
+.parent {
+  position: relative;
+}
+
+.jumbotron {
+  color: #aaa;
+  h1 {
+    color: #fff;
+    font-size: 28px;
+  }
+  font-size: 18px;
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: @screen-tablet) {
+    font-size: 21px;
+    h1 {
+      font-size: 36px
+    }
+  }
+
+  a {
+    color: #fff;
+    font-weight: bold;
+    &.btn {
+      color: #333;
+    }
+  }
+}
+
+.sold {
+  position: absolute;
+  z-index: 1001;
+  vertical-align: middle;
+  text-align: center;
+  //font-family: @handwriting;
+  font-weight: bold;
+  color: #eee;
+  background-color: #8c2d2d;
+  border: 3px solid #eee;
+}
+
+.for-sale-sign {
+  float: right;
+  width: 250px;
+  padding-left: 40px;
+  position: relative;
+
+  .name {
+    position: absolute;
+    top: 95px;
+    left: 65px;
+    width: 158px;
+    text-align: center;
+    font-size: 20px;
+    font-family: @handwriting;
+    font-weight: bold;
+    color: #000;
+  }
+}
+
+#item-list {
+  .thumbnail {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-width: 4px;
+    border-color: transparent;
+
+    .transition(all 0.3s ease);
+    &:hover {
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    .caption {
+      padding-bottom: 2px;
+    }
+
+    .price {
+      z-index: 10;
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      top: 150%;
+      left: 50%;
+      margin-top: -50px;
+      margin-left: -50px;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #000;
+      line-height: 100px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      //font-family: @handwriting;
+    }
+
+    .item-image {
+      position: relative;
+      overflow: hidden;
+      height: 0;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+      }
+    }
+
+    &.available {
+      .item-image {
+        img {
+          opacity: 1;
+
+          @media screen and (min-width: @screen-tablet) {
+            left: -30%;
+            width: 130%;
+            height: 130%;
+          }
+        }
+      }
+    }
+  }
+
+  .sold {
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 60px;
+    margin-left: -40%;
+    margin-top: -30px;
+
+    line-height: 50px;
+    font-size: 28px;
+
+    .rotate(-20deg);
+  }
+
+  .caption {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+#item-details {
+
+  .price-tag {
+
+    position: absolute;
+    z-index: 1000;
+    top: 10px;
+    left: -10px;
+    width: 225px;
+    height: 100px;
+    .rotate(-20deg);
+
+    line-height: 110px;
+    vertical-align: middle;
+    text-align: center;
+
+    background-image: url(/images/tape1.png);
+
+    font-size: 42px;
+    font-family: @handwriting;
+    color: #006600;
+
+    @media screen and (max-width: (@screen-tablet - 1)) {
+      width: 150px;
+      height: 60px;
+      line-height: 70px;
+      font-size: 24px;
+    }
+  }
+
+  .sold {
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 90px;
+    margin-left: -40%;
+    margin-top: -45px;
+
+    line-height: 80px;
+    font-size: 48px;
+    font-weight: bold;
+
+    .rotate(-10deg);
+  }
+
+  .title {
+    padding-top: 20px;
+    font-size: (@font-size-base * 2);
+    font-weight: bold;
+  }
+
+  .price {
+    font-size: (@font-size-base * 1.5);
+    font-weight: bold;
+  }
+
+  .description {
+    padding-top: 20px;
+    font-size: (@font-size-base * 1.2);
+
+    ul {
+      list-style-image: url(/images/check.png)
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  .offer {
+    padding-top: 20px;
+  }
+
+  .thumb-wrapper {
+    width: 175px;
+    display: inline-block;
+    padding-top: 20px;
+    padding-right: 10px;
+
+    .thumbnail {
+      border: 5px solid rgba(0, 0, 0, 0.1);
+      padding: 0;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+
+  .carousel {
+    border: 6px solid rgba(0, 0, 0, 0.1);
+    border-radius: @border-radius-base;
+  }
+
+  .carousel-control {
+    opacity: 1;
+    background-image: none;
+    .reset-filter();
+
+    span {
+      padding: 20px;
+      width: 60px;
+      height: 66px;
+      margin-top: -33px;
+      left: 0;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: #eee;
+    }
+
+    &.right span {
+      left: auto;
+      right: 0;
+    }
+
+    &:hover {
+      span {
+        color: #fff;
+      }
+    }
+
+  }
+}
+
+.map {
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-radius: @border-radius-base;
+}
